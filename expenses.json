@@ -1,0 +1,17 @@
+[
+    {
+        "date": "23/5/2025",
+        "description": "veggies",
+        "amount": 500.0
+    },
+    {
+        "date": "24/5/2025",
+        "description": "fancy products",
+        "amount": 250.0
+    },
+    {
+        "date": "2025-3-23",
+        "description": "milk",
+        "amount": 20.0
+    }
+]

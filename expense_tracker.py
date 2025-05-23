@@ -1,9 +1,20 @@
 # personal_expense_tracker.py
 
+from datetime import datetime
+
 expenses = []
 
+def get_valid_date(prompt):
+    while True:
+        date_input = input(prompt)
+        try:
+            datetime.strptime(date_input, '%Y-%m-%d')
+            return date_input
+        except ValueError:
+            print("Invalid date format. Please use YYYY-MM-DD.")
+
 def add_expense():
-    date = input("Enter date (YYYY-MM-DD): ")
+    date = get_valid_date("Enter date (YYYY-MM-DD): ")
     description = input("Enter description: ")
     while True:
         try:
@@ -20,12 +31,12 @@ def show_expenses():
         return
     print("\nList of expenses:")
     for i, expense in enumerate(expenses, start=1):
-        print(f"{i}. {expense['date']} | {expense['description']} | ${expense['amount']:.2f}")
+        print(f"{i}. {expense['date']} | {expense['description']} | ₹{expense['amount']:.2f}")
     print()
 
 def show_total():
     total = sum(exp['amount'] for exp in expenses)
-    print(f"\nTotal expenses: ${total:.2f}\n")
+    print(f"\nTotal expenses: ₹{total:.2f}\n")
 
 def main():
     while True:
